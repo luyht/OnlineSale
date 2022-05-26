@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Run All Test Cases on Chrome">
+	<!-- way 1: Run all test cases in HomePageTest.java and RegisterPageTest.java classes with groups="main" -->
+	<test name="Run all by group name">
+	<parameter name="browser" value ="chrome"></parameter>
+		<groups>
+			<run>
+				<include name="main" />
+			</run>
+		</groups>
+		<classes>
+			<class name="tests.HomePageTest"></class>
+			<class name="tests.RegisterPageTest"></class>
+		</classes>
+	</test>
+	<!-- way 2: Run test case "registerSuccessfully"-->
+	<test name="Run some test cases">
+	<parameter name="browser" value ="chrome"></parameter>
+		<classes>
+			<class name="tests.RegisterPageTest">
+				<methods>
+					<include name="registerSuccessfully"></include>
+					
+				</methods>
+			</class>
+			
+		</classes>
+	</test>
+</suite>
